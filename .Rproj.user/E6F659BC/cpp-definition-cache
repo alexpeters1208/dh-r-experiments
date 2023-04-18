@@ -1,0 +1,36 @@
+[
+    {
+        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one.cpp",
+        "file_last_write": 1681853545.0,
+        "definitions": [
+            {
+                "usr": "c:@F@add_one#f#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "add_one(float)",
+                "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one.cpp",
+                "line": 5,
+                "column": 7,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/rcpp_hello_world.cpp",
+        "file_last_write": 1681852859.0,
+        "definitions": [
+            {
+                "usr": "c:@F@rcpp_hello_world#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "rcpp_hello_world",
+                "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/rcpp_hello_world.cpp",
+                "line": 6,
+                "column": 6,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    }
+]
