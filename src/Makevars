@@ -1,0 +1,18 @@
+$(info The compilation root directory is: $(ROOT_DIR))                          
+$(info The name of the shared library to be created is: $(SHLIB))               
+
+CXX_STD = CXX14
+PKG_CPPFLAGS= -Dlibqmc_core_shared_EXPORTS -I../inst -I../inst/include
+#PKG_LIBS= -L../inst -lsqmc_main -lgsl -lCGAL -lgslcblas
+LIBS= -L./ -L../inst
+
+SOURCES_CPP= ./dhc_core/add_one.cpp
+
+OBJECTS = RcppExports.o $(SOURCES_CPP:.cpp=.o)
+
+all: $(SHLIB)
+
+#$(SHLIB): $(OBJECTS) ../inst/libsqmc_main.a 
+
+#../inst/libsqmc_main.a: $(OBJECTS)
+#    ar -rvs ../inst/libsqmc_main.a $(OBJECTS)

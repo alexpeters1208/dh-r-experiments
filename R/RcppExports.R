@@ -5,7 +5,3 @@ add_one <- function(input) {
     .Call(`_dhc_add_one`, input)
 }
 
-rcpp_hello_world <- function() {
-    .Call(`_dhc_rcpp_hello_world`)
-}
-

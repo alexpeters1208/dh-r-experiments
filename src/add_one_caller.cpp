@@ -1,5 +1,4 @@
-#include "../lib/add_one.h"
-// [[Rcpp::depends(add_one)]]
+#include "../inst/include/add_one.h"
 #include <Rcpp.h>
 
 // [[Rcpp::export]]

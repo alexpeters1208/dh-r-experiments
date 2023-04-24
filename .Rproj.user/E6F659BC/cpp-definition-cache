@@ -1,22 +1,28 @@
 [
     {
-        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one_caller.cpp",
-        "file_last_write": 1682185587.0,
+        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/inst/include/add_one.h",
+        "file_last_write": 1682104024.0,
         "definitions": [],
         "hidden": false
     },
     {
-        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/rcpp_hello_world.cpp",
-        "file_last_write": 1681852859.0,
+        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one_caller.cpp",
+        "file_last_write": 1682349398.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/dhc_core/add_one.cpp",
+        "file_last_write": 1682349397.0,
         "definitions": [
             {
-                "usr": "c:@F@rcpp_hello_world#",
+                "usr": "c:@F@add_one#f#",
                 "kind": 6,
                 "parent_name": "",
-                "name": "rcpp_hello_world",
-                "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/rcpp_hello_world.cpp",
-                "line": 6,
-                "column": 6,
+                "name": "add_one(float)",
+                "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/dhc_core/add_one.cpp",
+                "line": 4,
+                "column": 7,
                 "hidden": false
             }
         ],
