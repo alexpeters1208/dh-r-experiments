@@ -21,9 +21,33 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// add_two
+float add_two(float input);
+RcppExport SEXP _dhc_add_two(SEXP inputSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type input(inputSEXP);
+    rcpp_result_gen = Rcpp::wrap(add_two(input));
+    return rcpp_result_gen;
+END_RCPP
+}
+// add_three
+float add_three(float input);
+RcppExport SEXP _dhc_add_three(SEXP inputSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type input(inputSEXP);
+    rcpp_result_gen = Rcpp::wrap(add_three(input));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_dhc_add_one", (DL_FUNC) &_dhc_add_one, 1},
+    {"_dhc_add_two", (DL_FUNC) &_dhc_add_two, 1},
+    {"_dhc_add_three", (DL_FUNC) &_dhc_add_three, 1},
     {NULL, NULL, 0}
 };
 

@@ -5,3 +5,11 @@ add_one <- function(input) {
     .Call(`_dhc_add_one`, input)
 }
 
+add_two <- function(input) {
+    .Call(`_dhc_add_two`, input)
+}
+
+add_three <- function(input) {
+    .Call(`_dhc_add_three`, input)
+}
+

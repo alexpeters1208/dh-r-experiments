@@ -1,4 +1,4 @@
-#include "../../inst/include/add_one.h"
+#include "add_several.h"
 #include <iostream>
 
 float add_one(float input) {
