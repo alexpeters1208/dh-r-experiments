@@ -1,19 +1,8 @@
 [
     {
-        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one.cpp",
-        "file_last_write": 1681853545.0,
-        "definitions": [
-            {
-                "usr": "c:@F@add_one#f#",
-                "kind": 6,
-                "parent_name": "",
-                "name": "add_one(float)",
-                "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one.cpp",
-                "line": 5,
-                "column": 7,
-                "hidden": false
-            }
-        ],
+        "file": "/Users/alexpeters/Documents/R-Dev/package-dev/dhc/src/add_one_caller.cpp",
+        "file_last_write": 1682185587.0,
+        "definitions": [],
         "hidden": false
     },
     {
