@@ -7,7 +7,7 @@ SOURCES = $(wildcard *.cpp)
 # compiled objects to link
 OBJECTS = $(SOURCES:.cpp=.o)
 
-all: $(SHLIB) ../lib/lib.a clean
+all: $(SHLIB) ../lib/lib.a
 
 # creates package shared library?
 $(SHLIB): $(OBJECTS) $(PKG_LIBS)
@@ -20,8 +20,5 @@ $(SHLIB): $(OBJECTS) $(PKG_LIBS)
 # return to a clean checkout state, intermediate and terminal steps.
 # removing $(SHLIB) results in failed compilation, we need dhc.so
 clean:
-	rm $(OBJECTS)
-	cd ../lib; \
-		rm lib.a; \
-		rm -f *.o; \
-		rm -f *.so;
+	(cd ../lib && make clean)
+	rm -f *.o *.so
