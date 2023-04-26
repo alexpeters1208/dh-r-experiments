@@ -1,5 +1,7 @@
 $(info The name of the shared library to be created is: $(SHLIB)) 
 
+# set C++ standard
+CXX_STD = CXX17
 # list of required libraries, including our own stored in ../lib
 PKG_LIBS = ../lib/lib.a
 # all src directory c++ source files
@@ -14,7 +16,6 @@ $(SHLIB): $(OBJECTS) $(PKG_LIBS)
 
 # builds our library
 ../lib/lib.a:
-	echo $(SOURCES)
 	(cd ../lib && make)
 	
 # return to a clean checkout state, intermediate and terminal steps.
