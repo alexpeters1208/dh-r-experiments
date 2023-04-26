@@ -1,8 +1,8 @@
 SRC = $(wildcard *.cpp)
-CC = clang -arch arm64
-CFLAGS = -falign-functions=64 -Wall -g -O2
-CXX = clang++ -arch arm64 -std=gnu++14
-CXXFLAGS = -falign-functions=64 -Wall -g -O2
+CC = `"${R_HOME}/bin/R" CMD config CC`
+CFLAGS = `"${R_HOME}/bin/R" CMD config CFLAGS`
+CXX = `"${R_HOME}/bin/R" CMD config CXX`
+CXXFLAGS = `"${R_HOME}/bin/R" CMD config CXXFLAGS`
 
 all: lib.a
 
