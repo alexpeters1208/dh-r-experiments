@@ -13,4 +13,4 @@ compile:
 	$(CXX) -c $(CXXFLAGS) $(SRC)
 
 clean:
-	rm -f $(SRC:.cpp=.o) lib.a
+	rm -f *.o *.a
