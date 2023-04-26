@@ -14,7 +14,6 @@ $(SHLIB): $(OBJECTS) $(PKG_LIBS)
 
 # builds our library
 ../lib/lib.a:
-	echo $(SOURCES)
 	(cd ../lib && make)
 	
 # return to a clean checkout state, intermediate and terminal steps.
