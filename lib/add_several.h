@@ -3,12 +3,14 @@
 
 namespace TestNamespace {
 
-  float add_one(float input);
-  
-  float add_two(float input);
-  
-  float add_three(float input);
+float add_one(float input);
+
+float add_two(float input);
+
+float add_three(float input);
   
 }
+
+float add_outside(float input);
 
 #endif

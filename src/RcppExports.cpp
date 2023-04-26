@@ -10,17 +10,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// add_five_no_lib
-float add_five_no_lib(float input);
-RcppExport SEXP _dhc_add_five_no_lib(SEXP inputSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< float >::type input(inputSEXP);
-    rcpp_result_gen = Rcpp::wrap(add_five_no_lib(input));
-    return rcpp_result_gen;
-END_RCPP
-}
 // add_one
 float add_one(float input);
 RcppExport SEXP _dhc_add_one(SEXP inputSEXP) {
@@ -54,12 +43,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// add_outside
+float add_outside(float input);
+RcppExport SEXP _dhc_add_outside(SEXP inputSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< float >::type input(inputSEXP);
+    rcpp_result_gen = Rcpp::wrap(add_outside(input));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_dhc_add_five_no_lib", (DL_FUNC) &_dhc_add_five_no_lib, 1},
     {"_dhc_add_one", (DL_FUNC) &_dhc_add_one, 1},
     {"_dhc_add_two", (DL_FUNC) &_dhc_add_two, 1},
     {"_dhc_add_three", (DL_FUNC) &_dhc_add_three, 1},
+    {"_dhc_add_outside", (DL_FUNC) &_dhc_add_outside, 1},
     {NULL, NULL, 0}
 };
 

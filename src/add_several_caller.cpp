@@ -1,15 +1,24 @@
 #include "../lib/add_several.h"
 #include <Rcpp.h>
 
-//namespace TestNamespace {
+//using namespace TestNamespace;
+
 
 // [[Rcpp::export]]
-float add_one(float input);
+float add_one(float input) {
+  return TestNamespace::add_one(input);
+}
 
 // [[Rcpp::export]]
-float add_two(float input);
+float add_two(float input) {
+  return TestNamespace::add_two(input);
+}
+
 
 // [[Rcpp::export]]
-float add_three(float input);
+float add_three(float input) {
+  return TestNamespace::add_three(input);
+}
 
-//}
+// [[Rcpp::export]]
+float add_outside(float input);
