@@ -14,4 +14,4 @@ $(SRC:.cpp=.o):
 	$(CXX) -c -fPIC $(CXXFLAGS) $(SRC)
 
 clean:
-	rm -f $(SRC:.cpp=.o) lib.a
+	rm -f *.o *.a
