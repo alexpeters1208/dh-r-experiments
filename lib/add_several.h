@@ -9,7 +9,7 @@ float add_two(float input);
 
 float add_three(float input);
 
-inline constexpr double my_special_variable { 24 };
+inline constexpr double my_variable { 24 };
   
 }
 
