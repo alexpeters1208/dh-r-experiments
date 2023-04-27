@@ -8,6 +8,8 @@ float add_one(float input);
 float add_two(float input);
 
 float add_three(float input);
+
+inline constexpr double my_variable { 24 };
   
 }
 

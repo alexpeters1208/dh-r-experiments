@@ -1,5 +1,7 @@
 $(info The name of the shared library to be created is: $(SHLIB)) 
 
+# set C++ standard
+CXX_STD = CXX17
 # list of required libraries, including our own stored in ../lib
 PKG_LIBS = ../lib/lib.a
 # all src directory c++ source files
