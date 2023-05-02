@@ -55,11 +55,14 @@ BEGIN_RCPP
 END_RCPP
 }
 
+RcppExport SEXP _rcpp_module_boot_Nametag();
+
 static const R_CallMethodDef CallEntries[] = {
     {"_dhc_add_one", (DL_FUNC) &_dhc_add_one, 1},
     {"_dhc_add_two", (DL_FUNC) &_dhc_add_two, 1},
     {"_dhc_add_three", (DL_FUNC) &_dhc_add_three, 1},
     {"_dhc_add_outside", (DL_FUNC) &_dhc_add_outside, 1},
+    {"_rcpp_module_boot_Nametag", (DL_FUNC) &_rcpp_module_boot_Nametag, 0},
     {NULL, NULL, 0}
 };
 
