@@ -25,4 +25,4 @@ jobs:
           echo "$PWD"
           cd ..
           echo "$PWD"
-          R CMD INSTALL --build ./dh-r-experiments
+          R CMD INSTALL --build dh-r-experiments
