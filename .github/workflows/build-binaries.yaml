@@ -19,7 +19,7 @@ jobs:
             asset_name: dhc-macos-amd64
     steps:
       - name: Build files
-      - uses: actions/checkout@testing-branch
+      - uses: actions/checkout@v3
         run: |
           ## --------------------------------------------------------------------
           echo "Building binaries..."
