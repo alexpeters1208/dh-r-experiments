@@ -23,4 +23,6 @@ jobs:
           ## --------------------------------------------------------------------
           echo "Building binaries..."
           echo "$PWD"
+          cd ..
+          echo "$PWD"
           R CMD INSTALL --build ./dh-r-experiments
