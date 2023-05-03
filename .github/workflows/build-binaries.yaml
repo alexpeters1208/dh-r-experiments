@@ -1,0 +1,28 @@
+# workflow to build binary files
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: build-binary-files
+
+jobs:
+  build:
+    name: Build for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            artifact_name: dhc_1.0.zip
+            asset_name: dhc-windows-amd64
+          - os: macos-latest
+            artifact_name: dhc_1.0.tgz
+            asset_name: dhc-macos-amd64
+    steps:
+      - name: Build files
+        run: |
+          ## --------------------------------------------------------------------
+          echo "Building binaries..."
+          R CMD INSTALL --build dhc
