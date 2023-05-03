@@ -18,4 +18,8 @@ int Nametag::compute_age_in_months(int age) {
   return age * 12;
 }
 
+int Nametag::get_age_in_months() {
+  return age_in_months;
+}
+
 }
