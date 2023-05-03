@@ -23,7 +23,7 @@ jobs:
           ## --------------------------------------------------------------------
           echo "Building binaries..."
           echo $PWD
-          echo .* *
+          printf '%s\n' *
           cd ..
           echo $PWD
           echo .* *
@@ -33,4 +33,3 @@ jobs:
           cd ..
           echo $PWD
           echo .* *
-          R CMD INSTALL --build dh-r-experiments
