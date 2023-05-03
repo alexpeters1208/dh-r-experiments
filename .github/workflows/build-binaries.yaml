@@ -22,7 +22,10 @@ jobs:
         run: |
           ## --------------------------------------------------------------------
           echo "Building binaries..."
-          cd ../..
+          echo $PWD
+          cd ..
+          echo $PWD
+          cd ..
           echo $PWD
           cd ..
           echo $PWD
