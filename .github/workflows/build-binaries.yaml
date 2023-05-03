@@ -14,9 +14,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: windows-latest
-            artifact_name: dhc_1.0.zip
-            asset_name: dhc-windows-amd64
           - os: macos-latest
             artifact_name: dhc_1.0.tgz
             asset_name: dhc-macos-amd64
