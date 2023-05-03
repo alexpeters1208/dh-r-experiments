@@ -22,4 +22,5 @@ jobs:
         run: |
           ## --------------------------------------------------------------------
           echo "Building binaries..."
+          ls
           R CMD INSTALL --build ./dh-r-experiments
