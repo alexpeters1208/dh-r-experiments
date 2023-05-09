@@ -28,39 +28,21 @@ install the latest version until you can determine that another version is neede
 the install, R might complain that you do not have a compatible version of RTools installed. If this happens, make note of the RTools version it wants to see,
 install it, repeat step 1 accordingly, and try again.
 
-## Building the Arrow C++ Library
+## Building the Deephaven C++ Library
 
-If you're here, you might have reason to want to build Arrow's C++ library from source. You may be able to build this library on Windows or Intel Mac (don't try ARM Mac),
-but I would suggest using a Linux machine for this task. Of course, how you do so is up to you, but I've found it easiest to run the relevant VSCode project in a Docker container running an Ubuntu image. You can find the Docker file I used at https://github.com/JetBrains/clion-remote/blob/master/Dockerfile.remote-cpp-env (this is from CLion, but their IDE gave me problems and the docker image it builds is independent of CLion), and the walkthrough for running VSCode in Docker containers at https://code.visualstudio.com/docs/devcontainers/containers. Once you've decided on and set up a dev environment, you can build Arrow's C++ library as follows:
+If you're here, you might have reason to want to build Deephaven's C++ library from source. You may be able to build this library on Windows or Intel Mac (don't try ARM Mac), but I would suggest using a Linux machine. Here, I will outline the steps I took to build our C++ library.
 
-1. Follow the instructions outlined here: https://arrow.apache.org/docs/developers/cpp/building.html. I used the `ninja-release` build preset, but you can use whichever you see fit.
+#### 1. Getting an Ubuntu Shell via Docker
 
-    * You may have to set `-DARROW_CUDA=OFF`, as I had to do when I was working on Mac, but this problem did not resurface on Linux.
-    * If you run into errors that start to look like (paraphrasing) `utf8proc not found - require at least version 2.2.0 but found UTF8PROC-NOTFOUND`, this is bad news. Fixing this on Mac required installing the relevant package via `brew`, finding the install path for the package, finding the relevant `PKG_LIB` and `PKG_INCLUDE_DIR` variables in the `arrow/cpp/build/CMakeCache.txt` file, and changing them from `PKG_NOTFOUND` to the filepaths containing the package's `.dynlib` file and `include` directory, respectively. You then have to do this for every missing package. This is painful and I would not recommend it. I did not have to do this in the Linux container.
-2. Once you get the library built, there are a few extra things you need to do to actually run code. If you're in VSCode, navigate to `.vscode/tasks.json` and change
-  ```
-  "args": [
-      "-fdiagnostics-color=always",
-      "-g",
-      "${file}",
-      "-o",
-      "${fileDirname}/${fileBasenameNoExtension}"
-  ],
-  ```
+There are many options for using a Linux machine from non-Linux hardware, like local emulators, cloud-based machines, Docker images, and more. I find it easiest to use Docker to run an image of an Ubuntu instance with all of the prerequesites for building C++ already installed. This way, the Linux machine you get will be invariant to the host OS, you will be guaranteed to have the tools required to build and run Deephaven C++, and the library will be easily reproducible. Obviously, you will need Docker installed for this, and you may want some additional tooling around Docker to make life a little easier. For example, on MacOS, I'm also using Docker Desktop, and I believe other operating systems have similar tools.
 
-  to 
+1. Download the Dockerfile here (). This will build our Docker image and ensure that it contains all of the tools needed to build C++. Save it somewhere that you can easily access or remember.
+2. Open the Dockerfile in a text editor of your choice.
+3. Open a terminal (or command prompt on Windows) and navigate to the directory where the Dockerfile is housed.
+4. There are six commented Docker commands at the top of the Dockerfile, the first two being `docker build ...` and `docker run ...`. Copy, paste, and run each of these commands in your terminal. The first command uses the Dockerfile to build an image of an Ubuntu instance with necessary C++ tooling installed, and the second command runs the image in a container on localhost and exposes it to port 2222.
+5. Run the command `docker ps`, which should list the ID of the container you just created along with some other information about the container.
+6. Now, we need a shell into this Docker container. This can be easily accomplished by running the third commented command in the Dockerfile `docker exec ...`, which will bring up a shell as root in the container. If you need the ability to SSH into the container for any reason (maybe you want to connect a locally-hosted IDE like CLion), then you should run the fourth and fifth commands `ssh-keygen ...` and `docker exec ...`, change the root user password, and then use the sixth command `ssh ...` to ssh into the shell as root using the password that you just set. Either way, you should now have a working Ubuntu instance running in Docker that you can use to download, build, and install the Deephaven C++ library.
 
-  ```
-  "args": [
-      "-fdiagnostics-color=always",
-      "-I${workspaceFolder}/arrow/cpp/src",
-      "-std=c++17",
-      "-g",
-      "${file}",
-      "-o",
-      "${fileDirname}/${fileBasenameNoExtension}"
-  ],
-  ```
-This does two things. First, `"-I${workspaceFolder}/arrow/cpp/src"` tells the compiler to consider `${workspaceFolder}/arrow/cpp/src` a valid pathway for header files, and enables the project to reference that directory for header file inclusion without needing the full path name. This is important, because the many hundreds of C++ files in this library use header files defined in this directory. It seems like you can change this in the C/C++ extension configuration file, but the path you add there does not actually get passed to the compiler, so it has no real effect. Second, `-std=c++17` tells the compiler to compile with a C++17 standard, which is what this library is written in.
-  
-3. Next (this is a weird one), you need to change every instance of `#include "arrow/util/config.h"` in the entire project to `#include "arrow/config.h"`. The `config.h` file got moved out of the `util` directory, but none of the `#include` references were updated. I worry this would also be required for many other such header files that are sitting in `arrow/` that may have been moved from `arrow/dir`, but the code I ran only depended on `config.h`, so that's the only one I saw problems with.
+#### 2. Building DH C++
+
+1. In your new Linux shell, follow the instructions at https://github.com/deephaven/deephaven-core/tree/main/cpp-client closely. I've observed that you can skip step 2 in the beginning and come back to it later if need be - much of what happens in step 2 is redundant in the context of this document. Pay careful attention to where you create your directories in following this document. I did not want to create any new directories at the root level of my Linux instance, so I created a directory called `dh` in `/home/user` and followed these instructions from there.
